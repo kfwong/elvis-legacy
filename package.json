@@ -1,0 +1,26 @@
+{
+  "name": "elvis",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "request": "^2.81.0",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.68.2"
+  },
+  "devDependencies": {
+    "electron": "^1.6.6",
+    "react-scripts": "0.9.5"
+  },
+  "main": "src/electron-main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron ."
+  }
+}
