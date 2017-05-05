@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Content from "../Content";
+import Home from "../Home";
 
 export default class Routes extends Component {
 
@@ -19,8 +20,8 @@ export default class Routes extends Component {
 
         return (
             <Switch>
-                <Route exact path="/" component={Content}/>
-                <Route path="/settings" component={Content}/>
+                <Route exact path="/" component={Home}/>
+                <Route path="/settings" component={Home}/>
                 {moduleRoutes}
             </Switch>
         );

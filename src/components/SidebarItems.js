@@ -23,10 +23,14 @@ export default class SidebarItems extends Component {
         return (
             <div>
                 <Menu.Item>
-                    Home
+                    <Link to='/'>
+                        <h5>Home</h5>
+                    </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <h5>Settings</h5>
+                    <Link to='/settings'>
+                        <h5>Settings</h5>
+                    </Link>
                 </Menu.Item>
                 {moduleItems}
             </div>
