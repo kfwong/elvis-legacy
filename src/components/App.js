@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {HashRouter, Switch, Route, Link} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import {Sidebar, Menu, Icon} from 'semantic-ui-react';
+import Routes from "./routes/Routes";
 import SidebarItems from "./SidebarItems";
-import Content from "./Content";
 
-class App extends Component {
+
+export default class App extends Component {
 
     constructor(props) {
         super(props);
@@ -13,16 +14,6 @@ class App extends Component {
 
     toggleMenu() {
         this.setState({visible: !this.state.visible});
-    }
-
-    generateModuleRoutes(modules) {
-        return modules.map((module, index) => {
-            return (
-                <Route key={index}
-                       path={"/" + module.code}
-                       render={() => <Content module={module}/>}/>
-            );
-        });
     }
 
     render() {
@@ -34,8 +25,6 @@ class App extends Component {
             {code: 'CS3226', name: 'Web Programming Project'}
         ];
 
-        const moduleRoutes = this.generateModuleRoutes(modules);
-
         return (
             <HashRouter>
                 <div style={{height: '100vh'}}>
@@ -46,14 +35,9 @@ class App extends Component {
                             <SidebarItems modules={modules}/>
                         </Sidebar>
                         <Sidebar.Pusher>
-                            <Icon bordered inverted color="black" name="sidebar" onClick={() => {
-                                this.toggleMenu();
-                            }}/>
-                            <Switch>
-                                <Route exact path="/" component={Content}/>
-                                <Route path="/settings" component={Content}/>
-                                {moduleRoutes}
-                            </Switch>
+                            <Icon bordered inverted color="black" name="sidebar"
+                                  onClick={this.toggleMenu.bind(this)}/>
+                            <Routes modules={modules}/>
                         </Sidebar.Pusher>
                     </Sidebar.Pushable>
                 </div>
@@ -61,5 +45,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;
