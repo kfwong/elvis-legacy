@@ -2,7 +2,20 @@ import React, {Component} from 'react';
 import {Menu} from 'semantic-ui-react';
 
 export default class SidebarItems extends Component {
+    generateModuleMenuItems() {
+        return this.props.modules.map(module => {
+            return (
+                <Menu.Item>
+                    <h5>{module.code}<br/>
+                        <small>{module.name}</small>
+                    </h5>
+                </Menu.Item>
+            );
+        });
+    }
+
     render() {
+        const moduleItems = this.generateModuleMenuItems();
 
         return (
             <div>
@@ -12,31 +25,7 @@ export default class SidebarItems extends Component {
                 <Menu.Item>
                     <h5>Settings</h5>
                 </Menu.Item>
-                <Menu.Item>
-                    <h5>CS2010<br/>
-                        <small>Data Structure & Algorithm II</small>
-                    </h5>
-                </Menu.Item>
-                <Menu.Item>
-                    <h5>CS2106<br/>
-                        <small>Operating System</small>
-                    </h5>
-                </Menu.Item>
-                <Menu.Item>
-                    <h5>CS2107<br/>
-                        <small>Introduction to Computer Security</small>
-                    </h5>
-                </Menu.Item>
-                <Menu.Item>
-                    <h5>CS3219<br/>
-                        <small>Software Engineering Principles & Patterns</small>
-                    </h5>
-                </Menu.Item>
-                <Menu.Item>
-                    <h5>CS3226<br/>
-                        <small>Web Programming Project</small>
-                    </h5>
-                </Menu.Item>
+                {moduleItems}
             </div>
         )
     }
