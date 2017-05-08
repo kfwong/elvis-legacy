@@ -4,7 +4,6 @@ import {Sidebar, Menu, Icon} from 'semantic-ui-react';
 import Routes from "./routes/Routes";
 import SidebarItems from "./SidebarItems";
 
-
 export default class App extends Component {
 
     constructor(props) {
@@ -15,7 +14,7 @@ export default class App extends Component {
     toggleMenu() {
         this.setState({visible: !this.state.visible});
     }
-
+    
     render() {
         const modules = [
             {code: 'CS2010', name: 'Data Structure & Algorithm II'},
